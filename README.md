@@ -1,5 +1,10 @@
 # NT Studio — TV Clock
 
+[![Build APK](https://github.com/thanhka-nana/tv-clock/actions/workflows/build.yml/badge.svg)](https://github.com/thanhka-nana/tv-clock/actions/workflows/build.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![minSdk](https://img.shields.io/badge/minSdk-34-brightgreen.svg)](app/build.gradle.kts)
+[![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF.svg)](https://kotlinlang.org)
+
 Đồng hồ số dành cho Android TV, tối giản và không quảng cáo. Hiển thị giờ với hiệu ứng cuộn
 odometer, kèm dương lịch và **âm lịch Việt Nam** (Can Chi đầy đủ).
 
@@ -97,6 +102,15 @@ adb push wallpaper.jpg /sdcard/Android/data/com.gathin.tvhome/files/wallpaper.jp
 adb shell am force-stop com.gathin.tvhome
 adb shell am start -n com.gathin.tvhome/.MainActivity
 ```
+
+## Đóng góp
+
+Mọi đóng góp đều được chào đón — xem [CONTRIBUTING.md](CONTRIBUTING.md) để biết quy trình.
+Nếu bạn phát hiện lỗi hoặc muốn thêm tính năng, hãy mở [issue](https://github.com/thanhka-nana/tv-clock/issues) trước khi gửi PR.
+
+## Lịch sử thay đổi
+
+Xem [CHANGELOG.md](CHANGELOG.md).
 
 ## Giấy phép
 
