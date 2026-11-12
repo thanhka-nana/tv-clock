@@ -27,15 +27,15 @@ odometer, kèm dương lịch và **âm lịch Việt Nam** (Can Chi đầy đ�
 ### Cách 1 — Build từ source
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/thanhka-nana/tv-clock.git
+cd tv-clock
 ./gradlew assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
 ### Cách 2 — Tải APK có sẵn
 
-Vào mục [Releases](../../releases) và tải `app-debug.apk` mới nhất.
+Vào mục [Releases](https://github.com/thanhka-nana/tv-clock/releases) và tải `app-debug.apk` mới nhất.
 
 ### Cài lên TV
 
