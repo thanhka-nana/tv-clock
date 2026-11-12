@@ -1,14 +1,30 @@
-# NT Studio — TV Clock
+# Đồng hồ Android TV có Âm lịch Việt Nam — NT Studio TV Clock
 
 [![Build APK](https://github.com/thanhka-nana/tv-clock/actions/workflows/build.yml/badge.svg)](https://github.com/thanhka-nana/tv-clock/actions/workflows/build.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![minSdk](https://img.shields.io/badge/minSdk-34-brightgreen.svg)](app/build.gradle.kts)
 [![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF.svg)](https://kotlinlang.org)
+[![Android TV](https://img.shields.io/badge/Android%20TV-Google%20TV-3DDC84.svg)](https://www.android.com/tv/)
 
-Đồng hồ số dành cho Android TV, tối giản và không quảng cáo. Hiển thị giờ với hiệu ứng cuộn
-odometer, kèm dương lịch và **âm lịch Việt Nam** (Can Chi đầy đủ).
+**Đồng hồ số cho Android TV** miễn phí, không quảng cáo, hiển thị **âm lịch Việt Nam** đầy đủ
+cùng **Can Chi** (năm, tháng, ngày). Thiết kế tối giản với hiệu ứng cuộn chữ số kiểu odometer —
+phù hợp treo TV làm đồng hồ treo tường trong nhà.
 
-![Giao diện chính](docs/screenshot-main.png)
+![Giao diện đồng hồ Android TV với âm lịch Việt Nam](docs/screenshot-main.png)
+
+> Ứng dụng đồng hồ TV dành cho người Việt: xem giờ, ngày dương lịch, ngày âm lịch và Can Chi
+> trên cùng một màn hình, không cần Internet, không hiển thị quảng cáo.
+
+## Mục lục
+
+- [Tính năng](#tính-năng)
+- [Ảnh chụp màn hình](#ảnh-chụp-màn-hình)
+- [Yêu cầu hệ thống](#yêu-cầu-hệ-thống)
+- [Cài đặt](#cài-đặt)
+- [Câu hỏi thường gặp](#câu-hỏi-thường-gặp-faq)
+- [Kiến trúc](#kiến-trúc)
+- [Đóng góp](#đóng-góp)
+- [Giấy phép](#giấy-phép)
 
 ## Tính năng
 
@@ -18,18 +34,30 @@ odometer, kèm dương lịch và **âm lịch Việt Nam** (Can Chi đầy đ�
 - **Can Chi** — `Năm Bính Ngọ · Tháng Kỷ Hợi · Ngày Canh Dần`
 - **Không quảng cáo, không Internet** — app không xin quyền mạng
 - **Giữ màn hình sáng** — phù hợp treo TV làm đồng hồ
+- **Nhẹ** — custom View thuần, không dùng Compose, chạy tốt trên TV RAM thấp
 
-## Yêu cầu
+## Ảnh chụp màn hình
+
+![Đồng hồ số hiển thị giờ, ngày dương lịch và âm lịch trên Android TV](docs/screenshot-main.png)
+
+## Yêu cầu hệ thống
 
 | | |
 |---|---|
 | Android | 14 (API 34) trở lên |
 | Thiết bị | Android TV / Google TV |
 | Kích thước | Tối ưu cho 1920×1080 landscape |
+| Quyền | Không yêu cầu quyền nào (không Internet, không lưu trữ) |
+
+Đã kiểm thử trên **TCL G10 (Android 14, Realtek RTD6748)**.
 
 ## Cài đặt
 
-### Cách 1 — Build từ source
+### Cách 1 — Tải APK có sẵn
+
+Vào mục [Releases](https://github.com/thanhka-nana/tv-clock/releases) và tải `app-debug.apk` mới nhất.
+
+### Cách 2 — Build từ source
 
 ```bash
 git clone https://github.com/thanhka-nana/tv-clock.git
@@ -38,14 +66,10 @@ cd tv-clock
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-### Cách 2 — Tải APK có sẵn
-
-Vào mục [Releases](https://github.com/thanhka-nana/tv-clock/releases) và tải `app-debug.apk` mới nhất.
-
 ### Cài lên TV
 
 ```bash
-# Kết nối TV qua Wi-Fi (bật Network debugging trong Developer options)
+# Bật Developer options → Network debugging trên TV
 adb connect <TV_IP>:5555
 adb install -r app-debug.apk
 
@@ -53,12 +77,55 @@ adb install -r app-debug.apk
 adb shell am start -n com.ntstudio.clock/.DigitalClockActivity
 ```
 
+### Đặt làm launcher mặc định
+
+App đăng ký `LEANBACK_LAUNCHER` nên xuất hiện trong danh sách Home của Android TV.
+Vào **Cài đặt → Ứng dụng → Ứng dụng mặc định → Ứng dụng Home** để chọn.
+
+## Câu hỏi thường gặp (FAQ)
+
+### Đồng hồ TV này có hiển thị âm lịch không?
+
+Có. App hiển thị đầy đủ ngày âm lịch theo múi giờ Việt Nam (UTC+7), bao gồm cả
+**tháng nhuận** (hiển thị kèm chữ "(nhuận)").
+
+### Âm lịch có chính xác không?
+
+Thuật toán được triển khai độc lập trong `LunarCalendar.kt`, không dùng thư viện ngoài.
+Đã đối chiếu với lịch âm Việt Nam cho các mốc: Tết Nguyên Đán, tháng nhuận, và các ngày
+giáp ranh cuối tháng âm.
+
+### App có cần Internet không?
+
+Không. App **không xin quyền `INTERNET`** — bạn có thể kiểm tra trong `AndroidManifest.xml`.
+Mọi thứ tính toán offline trên thiết bị.
+
+### Có quảng cáo hay theo dõi người dùng không?
+
+Không có quảng cáo, không có SDK analytics, không thu thập dữ liệu.
+
+### Dùng được trên TV box / Google TV Stick không?
+
+Được, miễn thiết bị chạy Android 14 (API 34) trở lên và hỗ trợ `android.software.leanback`.
+Với thiết bị Android cũ hơn, xem mục [Câu hỏi thường gặp](#câu-hỏi-thường-gặp-faq) hoặc mở issue.
+
+### Đổi hình nền được không?
+
+Bản thân app dùng gradient cố định. Nếu bạn dùng launcher bên thứ ba
+(như [CleanYourTV](https://github.com/Gathin23/cleanyourtv)), có thể đặt ảnh nền riêng:
+
+```bash
+adb push wallpaper.jpg /sdcard/Android/data/com.gathin.tvhome/files/wallpaper.jpg
+adb shell am force-stop com.gathin.tvhome
+adb shell am start -n com.gathin.tvhome/.MainActivity
+```
+
 ## Kiến trúc
 
 ```
 app/src/main/java/com/ntstudio/clock/
 ├── DigitalClockActivity.kt   # Activity chính, tick mỗi giây
-├── LunarCalendar.kt          # Thuật toán chuyển đổi dương → âm lịch + Can Chi
+├── LunarCalendar.kt          # Chuyển đổi dương → âm lịch + Can Chi
 └── OdometerClockView.kt      # Custom View vẽ đồng hồ với animation cuộn
 ```
 
@@ -72,36 +139,28 @@ Chia dọc theo tỉ lệ **30% / 40% / 30%**:
 | 2 (40%) | Đồng hồ `HH:MM:SS` — giây màu đỏ |
 | 3 (30%) | Âm lịch + Can Chi |
 
-### Âm lịch
+### Thuật toán âm lịch
 
 `LunarCalendar.kt` tự triển khai thuật toán chuyển đổi, không phụ thuộc thư viện ngoài:
 
 - Tính theo múi giờ Việt Nam (UTC+7)
-- Xử lý đúng **tháng nhuận** — hiển thị `(nhuận)` khi gặp
+- Xử lý đúng **tháng nhuận**
 - Can Chi tính cho cả năm, tháng và ngày
 
-## Thư viện
+### Công nghệ
 
-| Thư viện | Phiên bản |
+| Thành phần | Phiên bản |
 |---|---|
 | AndroidX Core KTX | 1.19.1 |
 | AndroidX AppCompat | 1.8.0 |
-| AGP | 9.5.1 |
+| Android Gradle Plugin | 9.5.1 |
 | Gradle | 9.6.0 |
+| Kotlin | 2.x |
+| Ngôn ngữ | Kotlin |
+| UI | Custom View + XML (không dùng Compose) |
 
-Toàn bộ UI vẽ bằng **custom View + XML layout**, không dùng Compose — để giảm kích thước APK
+Toàn bộ UI vẽ bằng **custom View + XML layout** để giảm kích thước APK
 và đảm bảo tương thích với TV có RAM thấp.
-
-## Ghi chú về TV
-
-Nếu dùng launcher bên thứ ba (như [CleanYourTV](https://github.com/Gathin23/cleanyourtv)), có thể
-đổi hình nền bằng cách đẩy ảnh vào thư mục external files của launcher đó:
-
-```bash
-adb push wallpaper.jpg /sdcard/Android/data/com.gathin.tvhome/files/wallpaper.jpg
-adb shell am force-stop com.gathin.tvhome
-adb shell am start -n com.gathin.tvhome/.MainActivity
-```
 
 ## Đóng góp
 
@@ -115,3 +174,9 @@ Xem [CHANGELOG.md](CHANGELOG.md).
 ## Giấy phép
 
 [MIT](LICENSE) © 2026 NT Studio
+
+---
+
+**Từ khóa:** đồng hồ Android TV, đồng hồ TV âm lịch, âm lịch Việt Nam, lịch âm, Can Chi,
+đồng hồ số TV, đồng hồ treo tường thông minh, xem giờ trên TV, Android TV clock,
+Vietnamese lunar calendar, Google TV clock, ad-free TV clock, lịch vạn niên TV.

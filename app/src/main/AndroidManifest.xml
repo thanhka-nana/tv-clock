@@ -31,6 +31,14 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
+
+            <!--
+                Cho phép Google Assistant và tìm kiếm trên TV tìm thấy app
+                bằng các từ khóa tiếng Việt người dùng hay nói.
+            -->
+            <meta-data
+                android:name="com.android.tv.searchable.KEYWORDS"
+                android:value="đồng hồ, âm lịch, lịch âm, lịch vạn niên, can chi, giờ, ngày, clock" />
         </activity>
 
     </application>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Đồng Hồ</string>
+    <!--
+        Tên hiển thị trên launcher TV và trong Settings.
+        Giữ ngắn để không bị cắt trên card launcher, nhưng vẫn có từ khóa
+        "Âm Lịch" để dễ tìm bằng giọng nói / tìm kiếm trên TV.
+    -->
+    <string name="app_name">Đồng Hồ Âm Lịch</string>
 
     <!-- Hàng 1: Dương lịch -->
     <string name="solar_date_placeholder">Thứ -- - -- - -- - ----</string>
