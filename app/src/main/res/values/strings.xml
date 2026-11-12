@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Đồng Hồ</string>
+
+    <!-- Hàng 1: Dương lịch -->
+    <string name="solar_date_placeholder">Thứ -- - -- - -- - ----</string>
+
+    <!-- Hàng 3: Âm lịch -->
+    <string name="lunar_date_placeholder">--/--/----</string>
+    <string name="lunar_canchi_placeholder">--</string>
+</resources>

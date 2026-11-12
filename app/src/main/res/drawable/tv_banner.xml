@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Banner Leanback launcher (320x180).
+    Logo đồng hồ cách điệu: vòng tròn + 3 kim, tông trắng trên nền tối,
+    kim giây màu cam đất (#C55327) đồng bộ với theme.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+
+    <!-- Nền tối -->
+    <path
+        android:fillColor="#101014"
+        android:pathData="M0,0h320v180h-320z" />
+
+    <!-- Quầng sáng mờ phía sau logo -->
+    <path
+        android:fillColor="#1A1A20"
+        android:pathData="M160,90m-72,0a72,72 0,1 1,144 0a72,72 0,1 1,-144 0" />
+
+    <!-- Vòng ngoài đồng hồ -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M160,90m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6" />
+
+    <!-- 12 vạch chia giờ -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M160,44 L160,50 M206,90 L200,90 M160,136 L160,130 M114,90 L120,90"
+        android:strokeColor="#8A8A94"
+        android:strokeLineCap="round"
+        android:strokeWidth="3" />
+
+    <!-- Kim giờ (hướng ~10h) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M160,90 L141,71"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="7" />
+
+    <!-- Kim phút (hướng ~2h) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M160,90 L183,64"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="7" />
+
+    <!-- Kim giây màu cam đất -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M160,104 L166,52"
+        android:strokeColor="#C55327"
+        android:strokeLineCap="round"
+        android:strokeWidth="4" />
+
+    <!-- Trục giữa -->
+    <path
+        android:fillColor="#C55327"
+        android:pathData="M160,90m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0" />
+
+    <!-- Dải nhấn dưới logo -->
+    <path
+        android:fillColor="#C55327"
+        android:pathData="M132,156h56v4h-56z" />
+
+</vector>

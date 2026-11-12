@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nền đồng hồ -->
+    <color name="clock2_background">#0E0E10</color>
+    <color name="clock2_background_top">#1A1A20</color>
+    <color name="clock2_background_bottom">#08080A</color>
+
+    <!-- Chữ số (in đậm) -->
+    <color name="clock2_text_primary">#F5F5F7</color>
+    <color name="clock2_text_secondary">#8A8A94</color>
+
+    <!-- Màu dấu hai chấm -->
+    <color name="clock2_accent">#C55327</color>
+
+    <!-- Màu số giây -->
+    <color name="clock2_seconds">#E03A2F</color>
+</resources>

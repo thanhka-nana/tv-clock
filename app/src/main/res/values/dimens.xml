@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Ba hàng 30% / 40% / 30% của màn hình đồng hồ số.
+      Khoảng đệm để các dòng không dính sát vào khối số đồng hồ.
+    -->
+    <dimen name="digital_date_bottom_margin">28dp</dimen>
+    <dimen name="digital_lunar_top_margin">28dp</dimen>
+</resources>

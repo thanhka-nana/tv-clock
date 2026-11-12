@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Icon đồng hồ cách điệu — dùng làm foreground cho adaptive icon.
+    Vẽ trong viewport 108x108, vùng an toàn là hình tròn bán kính 36 quanh tâm (54,54).
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Vòng ngoài đồng hồ -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M54,54m-33,0a33,33 0,1 1,66 0a33,33 0,1 1,-66 0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6" />
+
+    <!-- Kim giờ (chỉ ~10 giờ) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M54,54 L42,40"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="6" />
+
+    <!-- Kim phút (chỉ ~2 giờ) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M54,54 L68,38"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="6" />
+
+    <!-- Kim giây màu cam đất -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M54,62 L58,30"
+        android:strokeColor="#C55327"
+        android:strokeLineCap="round"
+        android:strokeWidth="3.5" />
+
+    <!-- Trục giữa -->
+    <path
+        android:fillColor="#C55327"
+        android:pathData="M54,54m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+
+</vector>

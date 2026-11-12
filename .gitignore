@@ -1,0 +1,37 @@
+# --- Android / Gradle ---
+*.iml
+.gradle/
+.kotlin/
+/local.properties
+local.properties
+
+# Build outputs
+build/
+app/build/
+/captures
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+output.json
+
+# --- IDE ---
+.idea/
+*.hprof
+.DS_Store
+Thumbs.db
+
+# --- Signing / secrets ---
+*.jks
+*.keystore
+keystore.properties
+secrets.properties
+
+# --- Local scratch files (không thuộc source) ---
+config.json
+tv-restore-backup.md
+/scratch/
+*.log
